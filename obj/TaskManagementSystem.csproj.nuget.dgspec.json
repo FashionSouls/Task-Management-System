@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "I:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj": {}
+    "i:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj": {}
   },
   "projects": {
-    "I:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj": {
+    "i:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "I:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj",
+        "projectUniqueName": "i:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj",
         "projectName": "TaskManagementSystem",
-        "projectPath": "I:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj",
+        "projectPath": "i:\\Coding\\CSharp\\TaskManagementSystem\\TaskManagementSystem.csproj",
         "packagesPath": "C:\\Users\\msumm\\.nuget\\packages\\",
-        "outputPath": "I:\\Coding\\CSharp\\TaskManagementSystem\\obj\\",
+        "outputPath": "i:\\Coding\\CSharp\\TaskManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

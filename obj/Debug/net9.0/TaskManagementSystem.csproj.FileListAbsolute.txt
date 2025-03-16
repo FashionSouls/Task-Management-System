@@ -1,0 +1,15 @@
+I:\Coding\CSharp\TaskManagementSystem\bin\Debug\net9.0\TaskManagementSystem.exe
+i:\Coding\CSharp\TaskManagementSystem\bin\Debug\net9.0\TaskManagementSystem.deps.json
+i:\Coding\CSharp\TaskManagementSystem\bin\Debug\net9.0\TaskManagementSystem.runtimeconfig.json
+I:\Coding\CSharp\TaskManagementSystem\bin\Debug\net9.0\TaskManagementSystem.dll
+I:\Coding\CSharp\TaskManagementSystem\bin\Debug\net9.0\TaskManagementSystem.pdb
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.GeneratedMSBuildEditorConfig.editorconfig
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.AssemblyInfoInputs.cache
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.AssemblyInfo.cs
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.csproj.CoreCompileInputs.cache
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.sourcelink.json
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.dll
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\refint\TaskManagementSystem.dll
+I:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.pdb
+i:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\TaskManagementSystem.genruntimeconfig.cache
+i:\Coding\CSharp\TaskManagementSystem\obj\Debug\net9.0\ref\TaskManagementSystem.dll
