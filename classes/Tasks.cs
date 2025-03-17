@@ -1,13 +1,15 @@
 public class Task 
 {
+    public int Id { get; set; }
     public string TaskName { get; set; }
     public string TaskDescription { get; set; }
     public bool IsCurrent { get; set; }
     public int Difficulty { get; set; } // 0 - Easy / 1 - Medium / 2 - Hard
     public int Priority { get; set; } // 0 - Low / 1 - Medium / 2 - High 
     
-    public Task(string taskName, string taskDescription, int difficulty, int priority) 
+    public Task(int id, string taskName, string taskDescription, int difficulty, int priority) 
     {
+        this.Id = id;
         this.TaskName = taskName;
         this.TaskDescription = taskDescription;
         this.IsCurrent = false;

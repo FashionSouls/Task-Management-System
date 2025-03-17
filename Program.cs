@@ -31,28 +31,46 @@ void Tasks()
     Console.Clear();
     
     Data data = new();
-    List<Task> tasks = data.Load();
-    
-    Console.WriteLine("Tasks\n");
-    
-    for (int i = 0; i < tasks.Count; i++) 
+    List<Task> tasks =new List<Task>();
+    try 
     {
-        Task currentTask = tasks[i];
-        Console.WriteLine(i + ". " + currentTask.TaskName);
+        tasks = data.Load();
+    
+        Console.WriteLine("Tasks\n");
+        
+        for (int i = 0; i < tasks.Count; i++) 
+        {
+            Task currentTask = tasks[i];
+            Console.WriteLine(i + ". " + currentTask.TaskName);
+        }
+        
+        int max = tasks.Count - 1;
+        
+        Console.WriteLine("\nSelect a task (0-" + max + "):");
+        Console.WriteLine("\nSelect " + tasks.Count + " to add a new task:");
+        int index = input.GetIntUserInput(0, tasks.Count);
+        
+        if (index == tasks.Count) 
+        {
+            Task task = new Task(data.NextId(), "test", "test desc", 0, 0);
+            data.SaveTask(task);
+            Tasks();
+        } else 
+        {
+            TaskSelected(tasks[index]);
+        }
+    } catch 
+    {
+        Console.WriteLine("Failed to load tasks");
     }
-    
-    int max = tasks.Count - 1;
-    
-    Console.WriteLine("\nSelect a task (0-" + max + "):");
-    int index = input.GetIntUserInput(0, max);
-    
-    TaskSelected(tasks[index]);
     
     Console.ReadLine();
 }
 
 void TaskSelected(Task task) 
 {
+    Data data = new Data();
+
     Console.Clear();
     Console.WriteLine("Task Selected - " + task.TaskName + "\n");
     Console.WriteLine("Name: " + task.TaskName);
@@ -75,7 +93,20 @@ void TaskSelected(Task task)
     Console.WriteLine("Select an action (1-4)");
     int value = input.GetIntUserInput(1, 4);
     
-    if (value == 4) 
+    if (value == 1) 
+    {
+        data.DeleteTask(task.Id);
+        task.IsCurrent = !task.IsCurrent;
+        data.SaveTask(task);
+        TaskSelected(task);
+    } else if (value == 2) 
+    {
+        
+    } else if (value == 3) 
+    {
+        data.DeleteTask(task.Id);
+        Tasks();
+    } else if (value == 4) 
     {
         Tasks();
     }
