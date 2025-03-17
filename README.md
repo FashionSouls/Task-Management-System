@@ -16,3 +16,4 @@ A console-based task management system to add, edit and delete tasks.
 
 ## What do I need to know?
 - How do I store data?
+    - [JSON serialisation and deserialisation](https://learn.microsoft.com/en-us/dotnet/standard/serialization/system-text-json/overview)
