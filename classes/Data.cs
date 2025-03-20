@@ -18,6 +18,9 @@ public class Data
             string jsonString = JsonSerializer.Serialize<List<Task>>(tasks);
             
             File.WriteAllText(taskFile, jsonString);
+        } else 
+        {
+            // Create new JSON file
         }
     }
     
