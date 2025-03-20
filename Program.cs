@@ -5,8 +5,29 @@ Main();
 void Main() 
 {
     Console.Clear();
-    Console.WriteLine("Task Management System\n\nYour current task is:");
-
+    
+    string currentTaskName = "";
+    
+    try 
+    {
+        Data data = new Data();
+        List<Task> tasks = data.Load();
+        
+        for (int i = 0; i < tasks.Count; i++) 
+        {
+            if (tasks[i].IsCurrent) 
+            {
+                currentTaskName = tasks[i].TaskName;
+                break;
+            }
+        }
+    } catch 
+    {
+        Console.WriteLine("Failed to get current task.");
+    }
+    
+    Console.WriteLine("Task Management System\n\nYour current task is: " + currentTaskName);
+    
     Console.WriteLine("1. Tasks\n2. Exit\n\nSelect a number from the list:");
     int value = input.GetIntUserInput(1, 2);
     
@@ -41,24 +62,40 @@ void Tasks()
         for (int i = 0; i < tasks.Count; i++) 
         {
             Task currentTask = tasks[i];
-            Console.WriteLine(i + ". " + currentTask.TaskName);
+            if (currentTask.IsCurrent) 
+            {
+                Console.WriteLine(i + ". " + currentTask.TaskName + " (current)");
+            } else 
+            {
+                Console.WriteLine(i + ". " + currentTask.TaskName);
+            }
         }
         
         int max = tasks.Count - 1;
         
-        Console.WriteLine("\nSelect a task (0-" + max + "):");
-        Console.WriteLine("\nSelect " + tasks.Count + " to add a new task:");
-        int index = input.GetIntUserInput(0, tasks.Count);
+        Console.WriteLine("---\n1. Select a task");
+        Console.WriteLine("2. Add a new task");
+        Console.WriteLine("\n3. Go back");
         
-        if (index == tasks.Count) 
+        int value = input.GetIntUserInput(1, 3);
+        
+        if (value == 1) 
+        {
+            Console.WriteLine("\nSelect the task number (0-" + max + "):");
+            int index = input.GetIntUserInput(0, tasks.Count);
+            
+            TaskSelected(tasks[index]);
+        } else if (value == 2)
         {
             Task task = new Task(data.NextId(), "test", "test desc", 0, 0);
             data.SaveTask(task);
             Tasks();
         } else 
         {
-            TaskSelected(tasks[index]);
+            Main();
         }
+        
+        
     } catch 
     {
         Console.WriteLine("Failed to load tasks");

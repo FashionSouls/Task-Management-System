@@ -10,10 +10,12 @@ A console-based task management system to add, edit and delete tasks.
 ## What do I need to do?
 - [x] Set up basic template
 - [x] Create system of storing data
-- [x] Create ability to create, edit and delete tasks
-- [ ] Improve menus to allow both integers and characters
+- [x] Create ability to create, edit and delete data
+- [x] Improve menus
+- [ ] Allow user to create new tasks
+- [ ] Allow user to edit existing tasks
 - [ ] Show tasks in an order based on difficulty/priority
-- [ ] Allow to set a task as "current task"
+- [x] Allow to set a task as "current task"
 
 ## What do I need to know?
 - How do I store data?
