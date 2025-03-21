@@ -1,4 +1,5 @@
-﻿Input input = new Input();
+﻿Input input = new();
+Data data = new();
 
 Main();
 
@@ -10,7 +11,6 @@ void Main()
     
     try 
     {
-        Data data = new Data();
         List<Task> tasks = data.Load();
         
         for (int i = 0; i < tasks.Count; i++) 
@@ -51,7 +51,6 @@ void Tasks()
 {
     Console.Clear();
     
-    Data data = new();
     List<Task> tasks =new List<Task>();
     try 
     {
@@ -87,9 +86,7 @@ void Tasks()
             TaskSelected(tasks[index]);
         } else if (value == 2)
         {
-            Task task = new Task(data.NextId(), "test", "test desc", 0, 0);
-            data.SaveTask(task);
-            Tasks();
+            CreateTask();
         } else 
         {
             Main();
@@ -106,7 +103,6 @@ void Tasks()
 
 void TaskSelected(Task task) 
 {
-    Data data = new Data();
 
     Console.Clear();
     Console.WriteLine("Task Selected - " + task.TaskName + "\n");
@@ -138,7 +134,7 @@ void TaskSelected(Task task)
         TaskSelected(task);
     } else if (value == 2) 
     {
-        
+        EditTask(task);
     } else if (value == 3) 
     {
         data.DeleteTask(task.Id);
@@ -149,6 +145,54 @@ void TaskSelected(Task task)
     }
     
     Console.ReadLine();
+}
+
+void CreateTask() 
+{
+    Console.Clear();
+    Console.WriteLine("Create a task");
+    Console.WriteLine("\nEnter the name of the task:");
+    string taskName = input.GetUserInput();
+    
+    Console.WriteLine("Enter the task description:");
+    string taskDescription = input.GetUserInput();  
+    
+    Console.WriteLine("Enter the task difficulty (0-2):");
+    Console.WriteLine("0 - Easy / 1 - Medium / 2 - Hard");
+    int difficulty = input.GetIntUserInput(0, 2);
+    
+    Console.WriteLine("Enter the task priority (0-2):");
+    Console.WriteLine("0 - Low / 1 - Medium / 2 - High");
+    int priority = input.GetIntUserInput(0, 2);
+    
+    Console.WriteLine("\nCreate task (y/n)?");
+    bool confirmation = input.GetConfirmation();
+    
+    if (confirmation) 
+    {
+        Task newTask = new Task(data.NextId(), taskName, taskDescription, difficulty, priority); 
+        
+        try 
+        {
+            data.SaveTask(newTask);
+            Console.WriteLine("Saved new task! Press any key to return to the Tasks list.");
+        } catch 
+        {
+            Console.WriteLine("Failed to save new task. Press any key to return to the Tasks list.");
+        }
+        
+    } else 
+    {
+        Console.WriteLine("New task creation cancelled. Press any key to return to the Tasks list.");
+    }
+    
+    Console.ReadKey();
+    Tasks();
+}
+
+void EditTask(Task task) 
+{
+    
 }
 
 void Exit() 
