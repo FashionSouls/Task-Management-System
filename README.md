@@ -13,7 +13,7 @@ A console-based task management system to add, edit and delete tasks.
 - [x] Create ability to create, edit and delete data
 - [x] Improve menus
 - [x] Allow user to create new tasks
-- [ ] Allow user to edit existing tasks
+- [x] Allow user to edit existing tasks
 - [ ] Show tasks in an order based on difficulty/priority
 - [x] Allow to set a task as "current task"
 

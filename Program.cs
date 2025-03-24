@@ -192,7 +192,68 @@ void CreateTask()
 
 void EditTask(Task task) 
 {
+    Console.Clear();
+    Console.WriteLine("Edit task - " + task.TaskName + "\n");
+    Console.WriteLine("Name: " + task.TaskName);
+    Console.WriteLine("Description: " + task.TaskDescription);
+    Console.WriteLine("Priority: " + task.GetPriority());
+    Console.WriteLine("Difficulty: " + task.GetDifficulty());
     
+    Console.WriteLine("\nActions:");
+    Console.WriteLine("1. Change name");
+    Console.WriteLine("2. Change description");
+    Console.WriteLine("3. Change priority");
+    Console.WriteLine("4. Change difficulty\n");
+    Console.WriteLine("5. Save");
+    Console.WriteLine("6. Go back\n");
+    
+    Console.WriteLine("Select an action (1-6)");
+    int action = input.GetIntUserInput(1, 6);
+    
+    if (action == 1) 
+    {
+        Console.WriteLine("Enter new name:");
+        task.TaskName = input.GetUserInput();
+        EditTask(task);
+    } else if (action == 2) 
+    {
+        Console.WriteLine("Enter new description:");
+        task.TaskDescription = input.GetUserInput();
+        EditTask(task);
+    } else if (action == 3) 
+    {
+        Console.WriteLine("Enter the task priority (0-2):");
+        Console.WriteLine("0 - Low / 1 - Medium / 2 - High");
+        task.Priority = input.GetIntUserInput(0, 2);
+        EditTask(task);
+    } else if (action == 4)
+    {
+        Console.WriteLine("Enter the task difficulty (0-2):");
+        Console.WriteLine("0 - Easy / 1 - Medium / 2 - Hard");
+        task.Difficulty = input.GetIntUserInput(0, 2);
+    } else if (action == 5) 
+    {
+        Console.WriteLine("Save this task? (y/n)");
+        bool confirmation = input.GetConfirmation();
+        if (confirmation) 
+        {
+            data.DeleteTask(task.Id);
+            data.SaveTask(task);
+            TaskSelected(task);
+        } else 
+        {
+            EditTask(task);
+        }
+    } else 
+    {
+        Console.WriteLine("Are you sure you want to go back? You will lose any unsaved progress. (y/n)");
+        bool confirmation = input.GetConfirmation();
+        if (confirmation) 
+        {
+            Task oldTask = data.GetTask(task.Id);
+            TaskSelected(oldTask);
+        }
+    }
 }
 
 void Exit() 

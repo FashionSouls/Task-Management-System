@@ -1,1 +1,1 @@
-[{"Id":6,"TaskName":"New task","TaskDescription":"This is a new task","IsCurrent":true,"Difficulty":2,"Priority":1},{"Id":5,"TaskName":"test","TaskDescription":"test desc","IsCurrent":false,"Difficulty":0,"Priority":0}]
+[{"Id":2,"TaskName":"Test task","TaskDescription":"this is a test","IsCurrent":false,"Difficulty":2,"Priority":2},{"Id":5,"TaskName":"New name","TaskDescription":"test desc","IsCurrent":false,"Difficulty":0,"Priority":0}]

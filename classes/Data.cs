@@ -83,6 +83,17 @@ public class Data
         
     }
     
+    public Task GetTask(int id) 
+    {
+        List<Task> tasks = Load();
+        
+        int index = tasks.FindIndex(a => a.Id == id);
+        
+        Task newTask = tasks[index];
+        
+        return newTask;
+    }
+    
     public int NextId() 
     {
         List<Task> tasks = Load();
